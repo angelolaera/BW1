@@ -53,12 +53,12 @@ label {
 /* parte inferiore */
 #container form {
   margin: 6em 20em 0 0;
-  display: flex;
   align-items: center;
 }
 
 #container .text-label {
   margin-left: 10px;
+  margin-right: 10em;
 }
 
 button {
@@ -71,7 +71,6 @@ button {
   font-weight: 900;
   font-family: "Outfit", sans-serif;
   font-size: 1.1em;
-  margin-left: 20px;
   cursor: pointer;
 }
 
