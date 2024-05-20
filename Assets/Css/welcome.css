@@ -1,5 +1,5 @@
 body {
-  background-image: url(../Images/bg.jpg);
+  background-image: url(../img/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   margin-left: 30%;
@@ -8,7 +8,7 @@ body {
 /* Parte superiore */
 img {
   height: 40px;
-  padding: 1em 0 5em 0;
+  padding: 2em 0 5em 0;
 }
 
 /* Parte centrale */
@@ -33,21 +33,33 @@ img {
 
 #container h3 {
   color: rgb(194, 18, 141);
+  padding: 1.8em 0 0.6em 0;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
 }
 
 #container p,
 ul,
 label {
-  color: rgb(152, 155, 172);
+  color: rgb(255 255 255 / 72%);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
   font-variation-settings: "slnt" 0;
 }
 
+#container ul {
+  margin: 0 0 0 2em;
+}
+
+#container li {
+  padding: 0.4em;
+}
+
 #container p {
-  margin: 0 0 3em 0;
+  padding: 0 0 3em 0;
 }
 
 /* parte inferiore */
@@ -58,7 +70,9 @@ label {
 
 #container .text-label {
   margin-left: 10px;
-  margin-right: 10em;
+  margin-right: 9em;
+  color: #fff;
+  font-size: 1.1em;
 }
 
 button {
@@ -82,12 +96,12 @@ button {
 /* Stile per l'etichetta che rappresenta la checkbox */
 .custom-label {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background-color: transparent;
   border: 2px solid #fff; /* Bordo bianco */
-  border-radius: 4px; /* Angoli arrotondati opzionali */
   position: relative;
+  top: 3px;
   cursor: pointer;
 }
 
