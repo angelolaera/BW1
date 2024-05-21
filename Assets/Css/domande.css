@@ -2,18 +2,55 @@ body {
     background-image: url(../img/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 30%;
+  }
+
+  #pseudoBody{
+    width: 100%;
+    margin: auto;
+  }
+
+  header{
+    width: 60%;
+    margin: auto;
   }
   
+
   /* Parte superiore */
   img {
     height: 40px;
     padding: 2em 0 5em 0;
   }
+
+  .headerBox {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    vertical-align: top; /* Allinea verticalmente al top */
+}
+
+#hb2 {
+  color: white;
+ text-align: right;
+ margin-left: 16em;
+ font-family: "Outfit", sans-serif;
+ font-optical-sizing: auto;
+ font-weight: 400;
+ font-style: normal;
+}
+
+#hb2 #seconds{
+  margin-top: 1em;
+  font-size: 2em;
+}
   
   /* Parte centrale */
   #container {
-    width: 100%;
+    width: 50%;
+    margin: auto;
+    margin-top: 5em;
+    text-align: center;
+
   }
   
   /* H1 delle domande che  appariranno */
@@ -23,7 +60,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: 4em;
+    font-size: 3em;
     margin: 0;
   }
   
@@ -34,25 +71,37 @@ body {
   }
 #big-container{
   margin-top: 5%;
+  text-align: center;
 }
 
 #button-container{
   display:inline-block;
+  text-align: center;
 }
 
-#button-wrapper{
- 
-  
- 
-}
 
 button {
-  width: 250px;
-  height: 50px;
-  border: 2px solid white;
-  background-color: transparent;
-  border-image: linear-gradient(168deg, #ffffff, #f0e13000) 1;
-  border-radius:25px;
+  color: white;
+  width:  20em;
+  height: 6%;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-left: 2px solid rgb(255, 255, 255);
+  border-right: 2px solid #ffffff7b;
+  border-bottom: 2px solid #ffffff7b;
+  background:rgba(255, 255, 255, 0.133);
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color:rgb(194, 18, 141);
+  border-top: 2px solid rgb(255, 255, 255);
+  border-left: 2px solid rgb(255, 255, 255);
+  border-right: 2px solid rgb(175, 16, 127);
+  border-bottom: 2px solid  rgb(175, 16, 127);
 }
 
 
@@ -62,6 +111,31 @@ button {
   margin: 0 2% 4% 0;
   
 }
+
+#contatoreDomande{
+
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7em;
+  margin-top: 5em;
+}
+
+#contatoreDomande span{
+  
+  color: rgb(194, 18, 141);
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  margin: 0;
+
+}
+
+
 
 
   
