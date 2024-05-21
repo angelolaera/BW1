@@ -1,0 +1,67 @@
+body {
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 30%;
+  }
+  
+  /* Parte superiore */
+  img {
+    height: 40px;
+    padding: 2em 0 5em 0;
+  }
+  
+  /* Parte centrale */
+  #container {
+    width: 100%;
+  }
+  
+  /* H1 delle domande che  appariranno */
+  #container h1 {
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4em;
+    margin: 0;
+  }
+  
+   /* <span> delle domande che  appariranno */
+  #container span {
+    font-weight: 700;
+    color: white;
+  }
+#big-container{
+  margin-top: 5%;
+}
+
+#button-container{
+  display:inline-block;
+}
+
+#button-wrapper{
+ 
+  
+ 
+}
+
+button {
+  width: 250px;
+  height: 50px;
+  border: 2px solid white;
+  background-color: transparent;
+  border-image: linear-gradient(168deg, #ffffff, #f0e13000) 1;
+  border-radius:25px;
+}
+
+
+
+.button{
+  display: inline-block;
+  margin: 0 2% 4% 0;
+  
+}
+
+
+  
