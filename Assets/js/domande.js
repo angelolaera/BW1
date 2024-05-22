@@ -37,13 +37,18 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
+    incorrect_answers: [
+      "Central Process Unit",
+      "Computer Personal Unit",
+      "Central Processor Unit",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    question:
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -59,7 +64,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -67,7 +73,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    question:
+      "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -77,13 +84,18 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+    incorrect_answers: [
+      "Counter Strike: Source",
+      "Corrective Style Sheet",
+      "Computer Style Sheet",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the code name for the mobile operating system Android 7.0?",
+    question:
+      "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -107,7 +119,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "Which programming language shares its name with an island in Indonesia?",
+    question:
+      "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
@@ -125,18 +138,75 @@ const questions = [
 // BUON LAVORO 💪🚀
 
 // 1. Filtrare e salvare le domande giuste e quelle sbagliate in maniera da poter  eseguire un controllo più semplice
-const listaDomandeCorrette = [];
-const listaDomandeSbagliate = [];
-
-function pushaRisposte() {
-for (let index = 0; index < array.length; index++) {
-    listaDomandeCorrette.push
-    
-}
-  }
-}
-
-
 // - Unire le proprietà answer così da creare un unico  array da pushare a video
 // - Quando l'utente clicca la sua risposta, confrontare il click con sia le domande corrette sia quelle sbagliate in maniera tale da poter capire se la risposta è vera oppure falsa
 // - Sposarsi sulla domanda successiva
+
+let currentQuestionIndex = 0;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+const totalQuestions = questions.length;
+
+function showQuestion(question) {
+  const questionElement = document.getElementById("question");
+  const answersElement = document.getElementById("answers");
+  const nextButton = document.getElementById("next-button");
+
+  questionElement.textContent = question.question;
+  answersElement.innerHTML = ""; // Pulisce le risposte precedenti
+  nextButton.style.display = "none";
+
+  const answers = [...question.incorrect_answers, question.correct_answer];
+  answers.sort(() => Math.random() - 0.5); // Mischia le risposte
+
+  answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.textContent = answer;
+    button.classList.add("answer-button");
+    button.addEventListener("click", () => {
+      checkAnswer(answer, question.correct_answer);
+      nextButton.style.display = "block";
+    });
+    answersElement.appendChild(button);
+  });
+}
+
+function checkAnswer(selectedAnswer, correctAnswer) {
+  if (selectedAnswer === correctAnswer) {
+    correctAnswers++;
+  } else {
+    incorrectAnswers++;
+  }
+  // Non mostra nessun riscontro visivo immediato.
+}
+
+function nextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion(questions[currentQuestionIndex]);
+    document.getElementById("question-number").textContent =
+      currentQuestionIndex + 1;
+  } else {
+    endQuiz();
+  }
+}
+
+function endQuiz() {
+  const quizContainer = document.getElementById("container");
+  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`;
+
+  // Calcola le percentuali
+  const correctPercentage = (correctAnswers / totalQuestions) * 100;
+  const incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
+
+  // Crea un array con le percentuali
+  const results = [correctPercentage, incorrectPercentage];
+
+  // Salva i risultati nel localStorage per l'uso nella pagina successiva
+  localStorage.setItem("quizResults", JSON.stringify(results));
+}
+
+document.getElementById("next-button").addEventListener("click", nextQuestion);
+
+// Iniziare il quiz con la prima domanda
+showQuestion(questions[currentQuestionIndex]);
