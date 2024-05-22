@@ -1,119 +1,109 @@
 body {
-    background-image: url(../img/bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  #pseudoBody{
-    width: 100%;
-    margin: auto;
-  }
+#pseudoBody {
+  width: 100%;
+}
 
-  header{
-    width: 60%;
-    margin: auto;
-  }
-  
+header {
+  width: 40%;
+  margin: auto;
+}
 
-  /* Parte superiore */
-  img {
-    height: 40px;
-    padding: 2em 0 5em 0;
-  }
+/* Parte superiore */
+img {
+  height: 40px;
+  padding: 2em;
+}
 
-  .headerBox {
-    display: inline-block;
-    width: 200px;
-    height: 100px;
-    margin: 10px;
-    vertical-align: top; /* Allinea verticalmente al top */
+.headerBox {
+  display: inline-block;
+  width: 30%;
+  height: 15%;
+  vertical-align: top; /* Allinea verticalmente al top */
 }
 
 #hb2 {
   color: white;
- text-align: right;
- margin-left: 16em;
- font-family: "Outfit", sans-serif;
- font-optical-sizing: auto;
- font-weight: 400;
- font-style: normal;
+  text-align: right;
+  margin-left: 30%;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-#hb2 #seconds{
-  margin-top: 1em;
+#hb2 #seconds {
+  margin-top: 11%;
   font-size: 2em;
 }
-  
-  /* Parte centrale */
-  #container {
-    width: 50%;
-    margin: auto;
-    margin-top: 5em;
-    text-align: center;
 
-  }
-  
-  /* H1 delle domande che  appariranno */
-  #container h1 {
-    color: white;
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3em;
-    margin: 0;
-  }
-  
-   /* <span> delle domande che  appariranno */
-  #container span {
-    font-weight: 700;
-    color: white;
-  }
-#big-container{
-  margin-top: 5%;
+/* Parte centrale */
+#container {
+  width: 50%;
+  margin: auto;
+  margin-top: 5em;
   text-align: center;
 }
 
-#button-container{
-  display:inline-block;
+/* H1 delle domande che  appariranno */
+#container h1 {
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3em;
+  margin: 0;
+}
+
+/* <span> delle domande che  appariranno */
+#container span {
+  font-weight: 700;
+  color: white;
+}
+
+#big-container {
+  margin-top: 10%;
   text-align: center;
 }
 
+#button-container {
+  display: inline-block;
+  text-align: center;
+}
 
 button {
   color: white;
-  width:  20em;
+  width: 20em;
   height: 6%;
-  align-items: center;
-  justify-content: center;
   border-top: 2px solid rgb(255, 255, 255);
   border-left: 2px solid rgb(255, 255, 255);
   border-right: 2px solid #ffffff7b;
   border-bottom: 2px solid #ffffff7b;
-  background:rgba(255, 255, 255, 0.133);
+  background: rgba(255, 255, 255, 0.133);
   border-radius: 30px;
   overflow: hidden;
   cursor: pointer;
 }
 
-button:hover{
-  background-color:rgb(194, 18, 141);
+button:hover {
+  background-color: rgb(194, 18, 141);
   border-top: 2px solid rgb(255, 255, 255);
   border-left: 2px solid rgb(255, 255, 255);
   border-right: 2px solid rgb(175, 16, 127);
-  border-bottom: 2px solid  rgb(175, 16, 127);
+  border-bottom: 2px solid rgb(175, 16, 127);
 }
 
-
-
-.button{
+.button {
   display: inline-block;
   margin: 0 2% 4% 0;
-  
 }
 
-#contatoreDomande{
-
+#contatoreDomande {
   color: white;
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
@@ -123,18 +113,11 @@ button:hover{
   margin-top: 5em;
 }
 
-#contatoreDomande span{
-  
+#contatoreDomande span {
   color: rgb(194, 18, 141);
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-size: 1em;
-  margin: 0;
 }
-
-
-
-
-  
