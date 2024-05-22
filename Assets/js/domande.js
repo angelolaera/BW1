@@ -193,7 +193,7 @@ function nextQuestion() {
 
 function endQuiz() {
   const quizContainer = document.getElementById("container");
-  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`;
+  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`; /* da rivedere */
 
   // Calcola le percentuali
   const correctPercentage = (correctAnswers / totalQuestions) * 100;
