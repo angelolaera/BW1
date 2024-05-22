@@ -1,0 +1,70 @@
+body {
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Outfit", sans-serif;
+}
+
+header {
+  width: 80%;
+  margin: auto;
+}
+
+header img {
+  height: 40px;
+  padding: 2.5em 0 2.5em 0;
+}
+
+#title_page {
+  text-align: center;
+  color: white;
+}
+
+#title_page h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+
+#title_page p {
+  font-size: 1.5em;
+}
+
+#graph {
+  width: 40%;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  margin-top: 5%;
+  height: 35em;
+}
+
+.box {
+  /*line-height
+    overflow*/
+  display: inline-block;
+  color: white;
+  text-align: center;
+  width: 25%;
+  height: 80%;
+  vertical-align: top;
+}
+
+.box h2 {
+  font-size: 3em;
+  margin-top: 10%;
+}
+
+button {
+  border: 1.5px solid white;
+  background: transparent;
+  color: #ffffffb8;
+  width: 200px;
+  height: 55px;
+  margin-top: 4%;
+  font-size: 1.3em;
+  font-weight: 600;
+  box-shadow: 0px 0px 5px 2px #ffffff;
+  cursor: pointer;
+}
