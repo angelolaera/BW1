@@ -205,7 +205,7 @@ function endQuiz() {
   // Salva i risultati nel localStorage per l'uso nella pagina successiva
   localStorage.setItem("quizResults", JSON.stringify(results));
 }
-
+/* Next question button */
 document.getElementById("next-button").addEventListener("click", nextQuestion);
 
 // Iniziare il quiz con la prima domanda
