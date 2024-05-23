@@ -77,41 +77,28 @@ button {
 
 .chart-container {
   width:fit-content;
+  position: relative;
 }
 
-/*
-.programming-stats {
-  font-family: "Rubik", sans-serif;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin: 0 auto;
-  width: fit-content;
-  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  padding: 8px 32px;
-  color: #023047;
-  transition: all 400ms ease;
+
+  #chart-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.3em;
 }
 
-.programming-stats:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px -7px rgba(0, 0, 0, 0.3);
+#coloredText1{
+ color: #00ffff;
+ margin: 10% 0;
 }
 
-.programming-stats .details ul {
-  list-style: none;
-  padding: 0;
-}
+#coloredText2{
+  color: #ffffff78;
+  font-size: 70%;
+ }
 
-.programming-stats .details ul li {
-  font-size: 16px;
-  margin: 12px 0;
-  text-transform: uppercase;
-}
 
-.programming-stats .details .percentage {
-  font-weight: 700;
-  color: #e63946;
-}
-*/
+

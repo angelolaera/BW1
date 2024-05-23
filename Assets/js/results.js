@@ -20,6 +20,12 @@ wrongBox.innerHTML = `<h2>Wrong</h2><h2><span>${wrongs}%</span><h2>`;
 console.log(correctBox);
 console.log(wrongBox);
 
+//nodi testo nel chart
+
+//const charText = document.getElementById("char-text");
+//if (corrects >= 50) {
+//}
+
 //renderizzazione risultati
 
 // JS PER IL GRAFICO
@@ -62,13 +68,3 @@ new Chart(myChart, {
     },
   },
 });
-
-const populateUl = () => {
-  chartData.labels.forEach((l, i) => {
-    let li = document.createElement("li");
-    li.innerHTML = `${l}: <span class='percentage'>${chartData.data[i]}%</span>`;
-    ul.appendChild(li);
-  });
-};
-
-populateUl();
