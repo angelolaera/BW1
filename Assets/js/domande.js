@@ -149,6 +149,16 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 const totalQuestions = questions.length;
 
+const duration = 60; // Durata del countdown in secondi
+let startTime;
+let timerInterval;
+
+const timerText = document.getElementById("timerText");
+const donutSegment = document.querySelector(".donut-segment");
+
+// Aggiungi la classe per ruotare il segmento all'inizio
+donutSegment.classList.add("donut-start");
+
 function showQuestion(question) {
   const questionElement = document.getElementById("question");
   const answersElement = document.getElementById("answers");
@@ -168,6 +178,8 @@ function showQuestion(question) {
     });
     answersElement.appendChild(button);
   });
+
+  resetTimer(); // Reset del timer quando viene mostrata una nuova domanda
 }
 
 function checkAnswer(button, selectedAnswer, correctAnswer) {
@@ -200,8 +212,7 @@ function nextQuestion() {
 }
 
 function endQuiz() {
-  const quizContainer = document.getElementById("container");
-  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`; /* da modificare, che vada alla pagina successiva, ovvero result */
+  window.location.href = "IndexResults.html";
 
   // Calcola le percentuali
   const correctPercentage = (correctAnswers / totalQuestions) * 100;
@@ -214,18 +225,7 @@ function endQuiz() {
   localStorage.setItem("quizResults", JSON.stringify(results));
 }
 
-// Iniziare il quiz con la prima domanda
-showQuestion(questions[currentQuestionIndex]);
-
-/* TIMER SVG */
-
-let duration = 60; // Durata del countdown in secondi
-let startTime = Date.now();
-
-const timerText = document.getElementById("timerText");
-const donutSegment = document.querySelector(".donut-segment");
-
-donutSegment.classList.add("donut-start");
+/* CODICE TIMER SVG */
 
 function updateDonutTimer() {
   let elapsed = (Date.now() - startTime) / 1000;
@@ -244,11 +244,20 @@ function updateDonutTimer() {
 
   timerText.textContent = Math.ceil(remainingTime).toString();
 
-  if (remainingTime > 0) {
-    requestAnimationFrame(updateDonutTimer);
+  if (remainingTime <= 0) {
+    nextQuestion();
   } else {
-    timerText.textContent = "0";
+    timerInterval = requestAnimationFrame(updateDonutTimer);
   }
 }
 
-updateDonutTimer();
+function resetTimer() {
+  startTime = Date.now();
+  if (timerInterval) {
+    cancelAnimationFrame(timerInterval);
+  }
+  updateDonutTimer();
+}
+
+// Iniziare il quiz con la prima domanda
+showQuestion(questions[currentQuestionIndex]);
