@@ -1,3 +1,4 @@
+
 body {
   background-image: url(../img/bg.jpg);
   background-repeat: no-repeat;
@@ -30,7 +31,7 @@ header img {
 }
 
 #graph {
-  width: 40%;
+  width: fit-content;
   text-align: center;
 }
 
@@ -53,7 +54,10 @@ header img {
 
 .box h2 {
   font-size: 3em;
-  margin-top: 10%;
+}
+
+span {
+  font-weight: bold;
 }
 
 button {
@@ -68,3 +72,34 @@ button {
   box-shadow: 0px 0px 5px 2px #ffffff;
   cursor: pointer;
 }
+
+
+/*--------------------------------- CSS AGGIUNTO DA ANGELO PER IL GRAFICO ---------------------------------*/ 
+
+.chart-container {
+  width:fit-content;
+  position: relative;
+}
+
+
+  #chart-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#coloredText1{
+ color: #00ffff;
+ margin: 10% 0;
+}
+
+#coloredText2{
+  color: #ffffff78;
+  font-size: 70%;
+ }
+
+
+
