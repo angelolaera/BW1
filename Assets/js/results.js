@@ -22,9 +22,22 @@ console.log(wrongBox);
 
 //nodi testo nel chart
 
-//const charText = document.getElementById("char-text");
-//if (corrects >= 50) {
-//}
+const charText = document.getElementById("chart-text");
+if (corrects >= 60) {
+  charText.innerHTML = `<p>Congratulations!</p> 
+  <p id="coloredText1">You passed the EXAM!</p>
+  <p id="coloredText2">
+    We'll send you the certificate in few minutes <br />
+    Check your email(includig promotions/span folder)
+  </p>`;
+} else {
+  charText.innerHTML = `<p>I'm sorry!</p> 
+  <p id="coloredText1"> You FAILED the EXAM!  </p>
+  <p id="coloredText2">
+    We'll send you the certificate in few minutes <br />
+    Check your email(includig promotions/spam folder)
+  </p>`;
+}
 
 //renderizzazione risultati
 
