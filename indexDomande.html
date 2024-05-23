@@ -8,43 +8,84 @@
     <link rel="stylesheet" href="./assets/css/domande.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="pseudoBody">
-      <!-- Parte superiore -->
-      <header>
-        <div class="headerBox" id="hb1">
-          <img src="./assets/img/epicode_logo.png" alt="Epicode Logo" />
+    <!-- Parte superiore -->
+    <header>
+      <div id="logo">
+        <img src="./assets/img/epicode_logo.png" alt="Epicode Logo" />
+      </div>
+      <div id="Timer">
+        <div id="timerSVG">
+          <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+            <circle
+              class="donut-hole"
+              cx="21"
+              cy="21"
+              r="15.91549430918954"
+              fill="transparent"
+            ></circle>
+            <circle
+              class="donut-ring"
+              cx="21"
+              cy="21"
+              r="15.91549430918954"
+              fill="transparent"
+              stroke="#00FFFF"
+              stroke-width="3"
+            ></circle>
+            <circle
+              class="donut-segment"
+              cx="21"
+              cy="21"
+              r="15.91549430918954"
+              fill="transparent"
+              stroke="#d2d3d4"
+              stroke-width="3"
+            ></circle>
+            <!-- Aggiunta della maschera -->
+            <circle
+              class="donut-mask"
+              cx="21"
+              cy="21"
+              r="11"
+              fill="transparent"
+            ></circle>
+            <!-- Testo Timer -->
+          </svg>
+          <div class="timerText" id="timerText"></div>
+          <div class="timerLabelTop">Remaining</div>
+          <div class="timerLabelBottom">Time</div>
         </div>
-        <div class="headerBox" id="hb2">
-          <p id="seconds">00</p>
-          <p>SECONDI</p>
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <!-- Parte centrale -->
-      <main>
-        <div id="container">
-          <h1 id="question">How can I create a <span> checkbox in HTML? </span></h1>
+    <!-- Parte centrale -->
+    <main>
+      <div id="container">
+        <h1 id="question">
+          How can I create a <span> checkbox in HTML? </span>
+        </h1>
 
-          <div id="big-container">
-            <div id="answers" class="button-container">
-              <!-- Bottoni delle risposte verranno inseriti qui dinamicamente -->
-            </div>
+        <div id="big-container">
+          <div id="answers" class="button-container">
+            <!-- Bottoni delle risposte verranno inseriti qui dinamicamente -->
           </div>
-
-          <footer>
-            <div id="contatoreDomande">
-              <button id="next-button">Next Question</button>
-              QUESTION <span id="question-number">1</span>
-              /
-              <span id="total-questions">10</span>
-            </div>
-          </footer>
         </div>
-      </main>
-    </div>
+
+        <footer>
+          <div id="contatoreDomande">
+            QUESTION <span id="question-number">1</span>
+            /
+            <span id="total-questions">10</span>
+          </div>
+        </footer>
+      </div>
+    </main>
     <script src="./assets/js/domande.js"></script>
   </body>
 </html>

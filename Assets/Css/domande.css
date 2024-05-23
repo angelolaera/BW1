@@ -4,19 +4,16 @@ body {
   background-size: cover;
 }
 
-#pseudoBody {
-  width: 100%;
-}
-
 header {
-  width: 40%;
+  width: 50%;
   margin: auto;
+  display: ruby-text;
 }
 
 /* Parte superiore */
 img {
   height: 40px;
-  padding: 2em;
+  padding-bottom: 29%;
 }
 
 .headerBox {
@@ -140,3 +137,50 @@ button:hover {
 
 }
 
+/* TIMER SVG */
+#timerSVG {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+}
+
+.timerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5em;
+  color: #fdfdfd;
+}
+
+.timerLabelTop, .timerLabelBottom {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7em;
+  color: white;
+  text-transform: uppercase;
+}
+
+.timerLabelTop {
+  top: calc(53% - 40px);
+}
+
+.timerLabelBottom {
+  top: calc(40% + 40px);
+}
+
+.donut-segment {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 100 100;
+  transition: stroke-dasharray 0.3s;
+  fill: transparent;
+}
+
+.donut-mask {
+  fill: transparent;
+}

@@ -39,13 +39,18 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
+    incorrect_answers: [
+      "Central Process Unit",
+      "Computer Personal Unit",
+      "Central Processor Unit",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
+    question:
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -61,7 +66,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -69,7 +75,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    question:
+      "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -79,13 +86,18 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+    incorrect_answers: [
+      "Counter Strike: Source",
+      "Corrective Style Sheet",
+      "Computer Style Sheet",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the code name for the mobile operating system Android 7.0?",
+    question:
+      "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -109,7 +121,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "Which programming language shares its name with an island in Indonesia?",
+    question:
+      "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
@@ -139,11 +152,9 @@ const totalQuestions = questions.length;
 function showQuestion(question) {
   const questionElement = document.getElementById("question");
   const answersElement = document.getElementById("answers");
-  const nextButton = document.getElementById("next-button");
 
   questionElement.textContent = question.question;
   answersElement.innerHTML = ""; // Pulisce le risposte precedenti
-  nextButton.style.display = "none";
 
   const answers = [...question.incorrect_answers, question.correct_answer];
   answers.sort(() => Math.random() - 0.5); // Mischia le risposte
@@ -153,27 +164,36 @@ function showQuestion(question) {
     button.textContent = answer;
     button.classList.add("answer-button");
     button.addEventListener("click", () => {
-      checkAnswer(answer, question.correct_answer);
-      nextButton.style.display = "block";
+      checkAnswer(button, answer, question.correct_answer);
     });
     answersElement.appendChild(button);
   });
 }
 
-function checkAnswer(selectedAnswer, correctAnswer) {
+function checkAnswer(button, selectedAnswer, correctAnswer) {
   if (selectedAnswer === correctAnswer) {
     correctAnswers++;
+    button.style.backgroundColor = "green";
   } else {
     incorrectAnswers++;
+    button.style.backgroundColor = "red";
   }
-  // Non mostra nessun riscontro visivo immediato.
+  // Disabilita tutti i bottoni delle risposte
+  document
+    .querySelectorAll(".answer-button")
+    .forEach((btn) => (btn.disabled = true));
+
+  setTimeout(() => {
+    nextQuestion();
+  }, 1000); // Attende 1 secondo prima di passare alla prossima domanda
 }
 
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showQuestion(questions[currentQuestionIndex]);
-    document.getElementById("question-number").textContent = currentQuestionIndex + 1;
+    document.getElementById("question-number").textContent =
+      currentQuestionIndex + 1;
   } else {
     endQuiz();
   }
@@ -181,7 +201,7 @@ function nextQuestion() {
 
 function endQuiz() {
   const quizContainer = document.getElementById("container");
-  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`; /* da rivedere */
+  quizContainer.innerHTML = `<h2>Quiz finished! Your score is: ${correctAnswers}/${totalQuestions}</h2>`;
 
   // Calcola le percentuali
   const correctPercentage = (correctAnswers / totalQuestions) * 100;
@@ -193,8 +213,42 @@ function endQuiz() {
   // Salva i risultati nel localStorage per l'uso nella pagina successiva
   localStorage.setItem("quizResults", JSON.stringify(results));
 }
-/* Next question button */
-document.getElementById("next-button").addEventListener("click", nextQuestion);
 
 // Iniziare il quiz con la prima domanda
 showQuestion(questions[currentQuestionIndex]);
+
+/* TIMER SVG */
+
+let duration = 60; // Durata del countdown in secondi
+let startTime = Date.now();
+
+const timerText = document.getElementById("timerText");
+const donutSegment = document.querySelector(".donut-segment");
+
+donutSegment.classList.add("donut-start");
+
+function updateDonutTimer() {
+  let elapsed = (Date.now() - startTime) / 1000;
+  let remainingTime = duration - elapsed;
+
+  if (remainingTime < 0) {
+    remainingTime = 0;
+  }
+
+  const percentage = (remainingTime / duration) * 100;
+  const circumference = 2 * Math.PI * 15.91549430918954;
+
+  donutSegment.style.strokeDasharray = `${circumference} ${circumference}`;
+  // Calcolo dell offset
+  donutSegment.style.strokeDashoffset = (percentage * circumference) / 100;
+
+  timerText.textContent = Math.ceil(remainingTime).toString();
+
+  if (remainingTime > 0) {
+    requestAnimationFrame(updateDonutTimer);
+  } else {
+    timerText.textContent = "0";
+  }
+}
+
+updateDonutTimer();
