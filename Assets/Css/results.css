@@ -30,7 +30,7 @@ header img {
 }
 
 #graph {
-  width: 40%;
+  width: fit-content;
   text-align: center;
 }
 
@@ -76,9 +76,10 @@ button {
 /*--------------------------------- CSS AGGIUNTO DA ANGELO PER IL GRAFICO ---------------------------------*/ 
 
 .chart-container {
-  width: 200px;
+  width:fit-content;
 }
 
+/*
 .programming-stats {
   font-family: "Rubik", sans-serif;
   display: flex;
@@ -113,4 +114,4 @@ button {
   font-weight: 700;
   color: #e63946;
 }
-
+*/

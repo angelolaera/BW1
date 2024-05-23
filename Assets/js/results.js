@@ -25,8 +25,8 @@ console.log(wrongBox);
 // JS PER IL GRAFICO
 
 const chartData = {
-  labels: ["Python", "Java", "JavaScript", "C#", "Others"],
-  data: [30, 17, 10, 7, 36],
+  labels: ["Correct", "Wrong"],
+  data: [corrects, wrongs],
 };
 
 const myChart = document.querySelector(".my-chart");
@@ -38,13 +38,14 @@ new Chart(myChart, {
     labels: chartData.labels,
     datasets: [
       {
-        label: "Language Popularity",
+        label: "Percetuale",
         data: chartData.data,
       },
     ],
   },
   options: {
-    borderWidth: 10,
+    responsive: true,
+    //borderWidth: 10,
     borderRadius: 2,
     hoverBorderWidth: 0,
     plugins: {
