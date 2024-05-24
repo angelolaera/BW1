@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="./Assets/Css/feedback.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <img src="./Assets/img/epicode_logo.png" />
     </header>
+    <div id="ratingMessage"></div>
 
     <main>
       <div id="title">
@@ -30,15 +34,15 @@
       <div id="paragraph2">
         <p>Leave us on open feedback about your experienceso far</p>
       </div>
-      <div id="comment-input">
-        <input type="text" id="input" placeholder="Write your comment here" />
-      </div>
-      <div id="more-info">
-        <button>MORE INFO</button>
-      </div>
+      <form>
+        <div id="comment-input">
+          <input type="text" id="input" placeholder="Write your comment here" />
+        </div>
+        <div id="more-info">
+          <button id="bottone">MORE INFO</button>
+        </div>
+      </form>
     </main>
-
-    <div id="ratingMessage"></div>
 
     <script src="./Assets/js/feedback.js"></script>
   </body>

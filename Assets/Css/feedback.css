@@ -5,7 +5,7 @@ body {
 
 header {
   width: 80%;
-  margin: auto;
+  margin: 0 auto 7%;
 }
 
 header img {
@@ -90,5 +90,9 @@ button {
   cursor: pointer;
 }
 
-#ratingMessage{}
-
+#ratingMessage {
+  text-align: center;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-size: 300%;
+}

@@ -64,12 +64,31 @@ const setRating = (index) => {
 
   const messageElement = document.getElementById("ratingMessage");
   if (index <= 4) {
-    messageElement.textContent = "Grazie per il tuo feedback! Cercheremo di migliorare.";
+    messageElement.textContent =
+      "Grazie per il tuo feedback! Cercheremo di migliorare.";
   } else {
     messageElement.textContent = "Grazie per il tuo feedback positivo!";
   }
 
   messageElement.style.display = "none";
 };
+
 // Esegui la funzione con il numero desiderato di stelle
 starGrid(maxStars);
+
+const messaggioFinale = () => {
+  if (currentRating === -1) {
+    alert("Selezionare una valutazione prima di procedere");
+  } else {
+    const hideMain = document.getElementsByTagName("main")[0];
+    hideMain.style.display = "none";
+    const messaggio = document.getElementById("ratingMessage");
+    messaggio.style.display = "block";
+  }
+};
+
+const bottone = document.getElementById("bottone");
+bottone.addEventListener("click", (evento) => {
+  evento.preventDefault(); // impedisce il refresh della pagina
+  messaggioFinale();
+});
