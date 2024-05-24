@@ -113,6 +113,7 @@ const donutSegment = document.querySelector(".donut-segment"); // Elemento grafi
 donutSegment.classList.add("donut-start"); // Aggiunge una classe per l'inizio del timer
 
 function showQuestion(question) {
+  // Funzione che mostra le domande, prendendole dall'array
   const questionElement = document.getElementById("question"); // Elemento DOM per la domanda
   const answersElement = document.getElementById("answers"); // Elemento DOM per le risposte
 
@@ -136,6 +137,7 @@ function showQuestion(question) {
 }
 
 function checkAnswer(button, selectedAnswer, correctAnswer) {
+  // Funzione che controlla le domande sui bottoni
   if (selectedAnswer === correctAnswer) {
     correctAnswers++; // Incrementa il contatore delle risposte corrette
     button.style.backgroundColor = "green"; // Colora il bottone di verde per indicare la risposta corretta
@@ -154,17 +156,19 @@ function checkAnswer(button, selectedAnswer, correctAnswer) {
 }
 
 function nextQuestion() {
+  // Funzione per andare alla prossima domanda
   currentQuestionIndex++; // Incrementa l'indice della domanda corrente
   if (currentQuestionIndex < questions.length) {
     showQuestion(questions[currentQuestionIndex]); // Mostra la prossima domanda
     document.getElementById("question-number").textContent =
-      currentQuestionIndex + 1; // Aggiorna il numero della domanda corrente, andando alla prossi,a
+      currentQuestionIndex + 1; // Aggiorna il numero della domanda corrente, andando alla prossi,a domada
   } else {
     endQuiz(); // Se non ci sono più domande, termina il quiz
   }
 }
 
 function endQuiz() {
+  //Funzione che imposta un azione alla fine del Quiz
   window.location.href = "IndexResults.html"; // Reindirizza alla pagina dei risultati
 
   // Calcola le percentuali di risposte sbagliate o corrette
@@ -182,6 +186,7 @@ function endQuiz() {
 }
 
 function updateDonutTimer() {
+  //Funzione che gestisce la creazione, reset e animazione del grafico.
   let elapsed = (Date.now() - startTime) / 1000; // Calcola il tempo trascorso in secondi
   let remainingTime = duration - elapsed; // Calcola il tempo rimanente
 
