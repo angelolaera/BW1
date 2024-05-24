@@ -47,6 +47,7 @@ main {
 
 .starClass {
   padding: 10px;
+  cursor: pointer;
 }
 
 #paragraph2 {

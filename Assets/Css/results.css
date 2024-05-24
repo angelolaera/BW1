@@ -57,10 +57,14 @@ h2 p {
 
 #correct {
   text-align: left;
+  height: fit-content;
+  margin-top: 10%;
 }
 
 #wrong {
   text-align: right;
+  height: fit-content;
+  margin-top: 10%;
 }
 
 .box h2 {
