@@ -173,7 +173,9 @@ function endQuiz() {
   const results = [correctPercentage, incorrectPercentage];
 
   // Salva i risultati nel localStorage per l'uso nella pagina successiva
-  localStorage.setItem("quizResults", JSON.stringify(results));
+  localStorage.setItem("quizResults", JSON.stringify(results)); //percentuale
+  localStorage.setItem("correctA", JSON.stringify(correctAnswers)); //numero domande correct
+  localStorage.setItem("incorrectA", JSON.stringify(incorrectAnswers)); //num dom incorrect
 }
 
 function updateDonutTimer() {

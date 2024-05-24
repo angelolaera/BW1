@@ -1,11 +1,22 @@
 //recupera i risultati percentuali salvati
 const storedResults = localStorage.getItem("quizResults");
+const correctAns = localStorage.getItem("correctA");
+const incorrectAns = localStorage.getItem("incorrectA");
+
+console.log(correctAns);
+console.log(incorrectAns);
 
 //Converte JSON in oggetto
-const results = JSON.parse(storedResults);
+const results = JSON.parse(storedResults); //percentuali risp
 
 const corrects = results[0];
 const wrongs = results[1];
+
+//Converte numero risp
+
+//numero risp
+
+console.log("numero risposte c/w");
 
 //per controllare i risultati salvati nella pagina
 console.log("corrette:", corrects);
@@ -14,8 +25,8 @@ console.log("sbagliate:", wrongs);
 //crea nodi
 const correctBox = document.getElementById("correct");
 const wrongBox = document.getElementById("wrong");
-correctBox.innerHTML = `<h2>Correct</h2><h2><span>${corrects}%</span><h2>`;
-wrongBox.innerHTML = `<h2>Wrong</h2><h2><span>${wrongs}%</span><h2>`;
+correctBox.innerHTML = `<h2>Correct</h2><h2><span>${corrects}%</span><h2><p>${correctAns}/10 questions</p>`;
+wrongBox.innerHTML = `<h2>Wrong</h2><h2><span>${wrongs}%</span><h2><p>${incorrectAns}/10 questions</p>`;
 
 console.log(correctBox);
 console.log(wrongBox);
