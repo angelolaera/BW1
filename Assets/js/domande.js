@@ -95,39 +95,41 @@ const questions = [
   },
 ];
 
-/* FUNZIONE QUIZ + TIMER */
-let currentQuestionIndex = 0;
-let correctAnswers = 0;
-let incorrectAnswers = 0;
-const totalQuestions = questions.length;
+// FUNZIONE QUIZ + TIMER
+// Creo variabili dispensabili per la funzione
+
+let currentQuestionIndex = 0; // Indice della domanda corrente
+let correctAnswers = 0; // Contatore delle risposte corrette
+let incorrectAnswers = 0; // Contatore delle risposte sbagliate
+const totalQuestions = questions.length; // Numero totale di domande
 
 const duration = 60; // Durata del countdown in secondi
-let startTime;
-let timerInterval;
+let startTime; // Tempo di inizio del timer
+let timerInterval; // Variabile per gestire l'intervallo del timer
 
-const timerText = document.getElementById("timerText");
-const donutSegment = document.querySelector(".donut-segment");
+const timerText = document.getElementById("timerText"); // Elemento per visualizzare il tempo rimanente
+const donutSegment = document.querySelector(".donut-segment"); // Elemento grafico del timer
 
-donutSegment.classList.add("donut-start");
+donutSegment.classList.add("donut-start"); // Aggiunge una classe per l'inizio del timer
 
 function showQuestion(question) {
-  const questionElement = document.getElementById("question");
-  const answersElement = document.getElementById("answers");
+  const questionElement = document.getElementById("question"); // Elemento DOM per la domanda
+  const answersElement = document.getElementById("answers"); // Elemento DOM per le risposte
 
-  questionElement.textContent = question.question;
+  questionElement.textContent = question.question; // Visualizza la domanda
   answersElement.innerHTML = ""; // Pulisce le risposte precedenti
 
-  const answers = [...question.incorrect_answers, question.correct_answer];
+  const answers = [...question.incorrect_answers, question.correct_answer]; // Combina risposte corrette e sbagliate
   answers.sort(() => Math.random() - 0.5); // Mischia le risposte
 
   answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.textContent = answer;
-    button.classList.add("answer-button");
+    const button = document.createElement("button"); // Crea un bottone per ogni risposta
+    button.textContent = answer; // Testo del bottone
+    button.classList.add("answer-button"); // Aggiunge una classe al bottone
     button.addEventListener("click", () => {
-      checkAnswer(button, answer, question.correct_answer);
+      checkAnswer(button, answer, question.correct_answer); // Aggiunge un event listener al bottone al click
     });
-    answersElement.appendChild(button);
+    answersElement.appendChild(button); // Aggiunge il bottone alle risposte
   });
 
   resetTimer(); // Reset del timer quando viene mostrata una nuova domanda
@@ -135,11 +137,11 @@ function showQuestion(question) {
 
 function checkAnswer(button, selectedAnswer, correctAnswer) {
   if (selectedAnswer === correctAnswer) {
-    correctAnswers++;
-    button.style.backgroundColor = "green";
+    correctAnswers++; // Incrementa il contatore delle risposte corrette
+    button.style.backgroundColor = "green"; // Colora il bottone di verde per indicare la risposta corretta
   } else {
-    incorrectAnswers++;
-    button.style.backgroundColor = "red";
+    incorrectAnswers++; // Incrementa il contatore delle risposte sbagliate
+    button.style.backgroundColor = "red"; // Colora il bottone di rosso per indicare la risposta sbagliata
   }
   // Disabilita tutti i bottoni delle risposte
   document
@@ -152,20 +154,21 @@ function checkAnswer(button, selectedAnswer, correctAnswer) {
 }
 
 function nextQuestion() {
-  currentQuestionIndex++;
+  currentQuestionIndex++; // Incrementa l'indice della domanda corrente
   if (currentQuestionIndex < questions.length) {
-    showQuestion(questions[currentQuestionIndex]);
+    showQuestion(questions[currentQuestionIndex]); // Mostra la prossima domanda
     document.getElementById("question-number").textContent =
-      currentQuestionIndex + 1;
+      currentQuestionIndex + 1; // Aggiorna il numero della domanda corrente, andando alla prossi,a
   } else {
-    endQuiz();
+    endQuiz(); // Se non ci sono più domande, termina il quiz
   }
 }
 
 function endQuiz() {
-  window.location.href = "IndexResults.html";
+  window.location.href = "IndexResults.html"; // Reindirizza alla pagina dei risultati
 
-  // Calcola le percentuali
+  // Calcola le percentuali di risposte sbagliate o corrette
+
   const correctPercentage = (correctAnswers / totalQuestions) * 100;
   const incorrectPercentage = (incorrectAnswers / totalQuestions) * 100;
 
@@ -175,39 +178,38 @@ function endQuiz() {
   // Salva i risultati nel localStorage per l'uso nella pagina successiva
   localStorage.setItem("quizResults", JSON.stringify(results)); //percentuale
   localStorage.setItem("correctA", JSON.stringify(correctAnswers)); //numero domande correct
-  localStorage.setItem("incorrectA", JSON.stringify(incorrectAnswers)); //num dom incorrect
+  localStorage.setItem("incorrectA", JSON.stringify(incorrectAnswers)); //num domande incorrect
 }
 
 function updateDonutTimer() {
-  let elapsed = (Date.now() - startTime) / 1000;
-  let remainingTime = duration - elapsed;
+  let elapsed = (Date.now() - startTime) / 1000; // Calcola il tempo trascorso in secondi
+  let remainingTime = duration - elapsed; // Calcola il tempo rimanente
 
   if (remainingTime < 0) {
-    remainingTime = 0;
+    remainingTime = 0; // Se il tempo è esaurito, imposta a 0
   }
 
-  const percentage = (remainingTime / duration) * 100;
-  const circumference = 2 * Math.PI * 15.91549430918954;
+  const percentage = (remainingTime / duration) * 100; // Calcola la percentuale del tempo rimanente
+  const circumference = 2 * Math.PI * 15.91549430918954; // Circonferenza del cerchio del timer
 
-  donutSegment.style.strokeDasharray = `${circumference} ${circumference}`;
-  donutSegment.style.strokeDashoffset = (percentage * circumference) / 100;
+  donutSegment.style.strokeDasharray = `${circumference} ${circumference}`; // Imposta la circonferenza del cerchio del timer
+  donutSegment.style.strokeDashoffset = (percentage * circumference) / 100; // Aggiorna la parte colorata del timer
 
-  timerText.textContent = Math.ceil(remainingTime).toString();
+  timerText.textContent = Math.ceil(remainingTime).toString(); // Visualizza il tempo rimanente
 
   if (remainingTime <= 0) {
-    nextQuestion();
+    nextQuestion(); //Se il tempo è esaurito, passa alla prossima domanda
   } else {
-    timerInterval = requestAnimationFrame(updateDonutTimer);
+    timerInterval = requestAnimationFrame(updateDonutTimer); // Aggiorna il timer ogni frame
   }
 }
 
 function resetTimer() {
-  startTime = Date.now();
+  startTime = Date.now(); // Imposta il tempo di inizio del timer
   if (timerInterval) {
-    cancelAnimationFrame(timerInterval);
+    cancelAnimationFrame(timerInterval); // Cancella l'aggiornamento del timer se presente
   }
-  updateDonutTimer();
+  updateDonutTimer(); //Avvia l'aggiornamento del timer
 }
 
-// Iniziare il quiz con la prima domanda della lista domande.
-showQuestion(questions[currentQuestionIndex]);
+showQuestion(questions[currentQuestionIndex]); // Mostra la prima domanda all'inizio del quiz

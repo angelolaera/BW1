@@ -21,6 +21,7 @@
       </div>
       <div id="timer">
         <div id="timerSVG">
+          <!-- SVG per il timer a ciambella -->
           <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
             <circle
               class="donut-hole"
@@ -29,6 +30,7 @@
               r="15.91549430918954"
               fill="transparent"
             ></circle>
+            <!-- Anello esterno fisso -->
             <circle
               class="donut-ring"
               cx="21"
@@ -38,6 +40,7 @@
               stroke="#00FFFF"
               stroke-width="3"
             ></circle>
+            <!-- Anello esterno fisso -->
             <circle
               class="donut-segment"
               cx="21"
@@ -47,6 +50,7 @@
               stroke="#d2d3d4"
               stroke-width="3"
             ></circle>
+            <!-- Segmento mobile del timer -->
             <circle
               class="donut-mask"
               cx="21"
@@ -54,10 +58,14 @@
               r="11"
               fill="transparent"
             ></circle>
+            <!-- Maschera per creare l'effetto ciambella -->
           </svg>
           <div class="timerText" id="timerText"></div>
+          <!-- Testo per il tempo rimanente -->
           <div class="timerLabelTop">Remaining</div>
+          <!-- "Remaining" sopra il timer -->
           <div class="timerLabelBottom">Time</div>
+          <!-- "Time" sotto il timer -->
         </div>
       </div>
     </header>
@@ -66,8 +74,10 @@
     <main>
       <div id="container">
         <h1 id="question"></h1>
+        <!-- Elemento per visualizzare la domanda corrente -->
         <div id="big-container">
           <div id="answers" class="button-container"></div>
+          <!-- Contenitore per i bottoni delle risposte -->
           <!-- Contenitore Domande -->
         </div>
         <!-- Parte Footer-->
@@ -75,6 +85,7 @@
           <div id="contatoreDomande">
             QUESTION <span id="question-number">1</span> /
             <span id="total-questions">10</span>
+            <!-- Contatore delle domande -->
           </div>
         </footer>
       </div>
