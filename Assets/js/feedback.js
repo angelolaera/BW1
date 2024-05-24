@@ -61,7 +61,15 @@ const setRating = (index) => {
       path.setAttribute("fill", "lightgray"); // Colore originale per le stelle non selezionate
     }
   }
-};
 
+  const messageElement = document.getElementById("ratingMessage");
+  if (index <= 4) {
+    messageElement.textContent = "Grazie per il tuo feedback! Cercheremo di migliorare.";
+  } else {
+    messageElement.textContent = "Grazie per il tuo feedback positivo!";
+  }
+
+  messageElement.style.display = "none";
+};
 // Esegui la funzione con il numero desiderato di stelle
 starGrid(maxStars);
